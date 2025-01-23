@@ -14,7 +14,6 @@
 <br/>
 - Node Js es muy rápido, ya que esta construido sobre el motor de JavaScript V8 de Google Chrome, que es muy rápido.
 <br/>
-- Node js utiliza el motor de JavaScript V8 de Google Chrome para ejecutar el código JavaScript.
 
 
 
