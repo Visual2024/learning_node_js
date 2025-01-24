@@ -51,9 +51,11 @@ npm install express
 ```
 
 5. Ahora escribe el siguiente comando para instalar nodemon.
+
 <br/>
  - Nodemon es una herramienta que ayuda a desarrollar aplicaciones basadas en node.js reiniciando automáticamente la aplicación cuando se detectan cambios en el directorio.
 <br/>
+
 ```bash
 
 npm install nodemon -D
@@ -61,6 +63,7 @@ npm install nodemon -D
 ```
 
 6. Ahora escribe el siguiente comando para crear un archivo index.js.
+
 
 ```bash
 
@@ -141,8 +144,6 @@ http://localhost:3000/
 npm run dev
 
 ```
-
-
 
 
 
