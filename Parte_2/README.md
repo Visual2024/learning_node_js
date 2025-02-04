@@ -27,35 +27,25 @@ console.log("Informacion de la CPU" + os.cpus()); // Nos da la informacion de la
 
 - Este modulo nos permite trabajar con el sistema de archivos del sistema operativo.
 
+- Este modulo es el mas importante de todos los modulos nativos de NodeJs, ya que nos permite trabajar con el sistema de archivos del sistema operativo.
+
 ```javascript
+const fs = require('node:fs');
 
-const fs = require('node:fs'); // Modulo nativo de NodeJs
+const stast = fs.statSync('txt/holamundo.txt');
 
-// Crear un archivo
-fs.writeFile('texto.txt', 'Hola mundo', 'utf8', (error) => {
-    if(error){
-        console.log('Error al crear el archivo');
-        return;
-    }
-    console.log('Archivo creado con exito');
-});
-
-// Leer un archivo
-fs.readFile('texto.txt', 'utf8', (error, data) => {
-    if(error){
-        console.log('Error al leer el archivo');
-        return;
-    }
-    console.log(data);
-});
-
-// Renombrar un archivo
-fs.rename('texto.txt', 'texto2.txt', (error) => {
-    if(error){
-        console.log('Error al renombrar el archivo');
-        return;
-    }
-    console.log('Archivo renombrado con exito');
-});
+console.log(
+    stast.isFile(), // Si es un archivo
+    stast.isDirectory(), // Si es un directorio
+    stast.isSymbolicLink(), // Si es un enlace simbolico
+    stast.size // Tamaño del archivo
+);
 
 ```
+
+## Asicronia vs Sincronia
+
+- En node js es mono hilo, lo que significa que solo puede ejecutar una tarea a la vez, pero esto no significa que sea sincrono, ya que node js es asincrono, lo que significa que puede ejecutar varias tareas a la vez, pero no de manera simultanea.
+
+- Este mismo esta basado en eventos y callbacks, lo que significa que cuando una tarea se completa, se ejecuta un callback, y esto es lo que hace que node js sea asincrono.
+
