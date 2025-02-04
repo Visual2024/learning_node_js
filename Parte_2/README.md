@@ -141,33 +141,3 @@ readFile('txt/holamundo.txt', 'utf-8')
 console.log('Leyendo el archivo');
 
 ```
-
-## Async/Await
-
-- Async/Await es una forma de trabajar con promesas de manera mas legible.
-
-- Async/Await es una mejora de las promesas, ya que nos permite trabajar con promesas de manera mas sincrona.
-
-```javascript
-
-const fs = require('node:fs');
-
-const { promisify } = require('node:util');
-
-const readFile = promisify(fs.readFile);
-
-const read = async () => {
-    try {
-        const data = await readFile('txt/holamundo.txt', 'utf-8');
-        console.log(data);
-    } catch (err) {
-        console.log(err);
-    }
-};
-
-read();
-
-console.log('Leyendo el archivo');
-
-```
-
