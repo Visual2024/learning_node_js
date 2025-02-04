@@ -119,6 +119,7 @@ function sum(a, b) {
 console.log(sum(2,3)); // 6
 
 ```
+### CommonJS Modules Export
 
 - Ahora vamos a separar este código en diferentes archivos.
 
@@ -135,6 +136,8 @@ function sum(a, b) {
 module.exports = sum;
 
 ```
+
+### ES Module
 
 - Ahora vamos a crear un archivo que se llama `index.js` y vamos a importar la función `sum` desde el archivo `sum.js`.
 
@@ -171,3 +174,38 @@ import { sum } from './sum';
 console.log(sum(2,3)); // 6
 
 ```
+
+- Para actualizar el código a la nueva forma de exportar e importar, debemos de cambiar el archivo `package.json` y agregar `"type": "module"`.
+
+```json
+
+{
+  "type": "module"
+}
+
+```
+
+- Ahora en el archivo `index.js` importamos de la siguiente manera.
+
+```javascript
+
+// index.js
+
+import { sum } from './sum.js';
+
+console.log(sum(2,3)); // 6
+
+```
+
+- Ahora en el archivo `sum.js` exportamos de la siguiente manera.
+
+```javascript
+
+// sum.js
+
+export function sum(a, b) {
+    return a + b;
+}
+
+```
+
