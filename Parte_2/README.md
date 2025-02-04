@@ -49,3 +49,131 @@ console.log(
 
 - Este mismo esta basado en eventos y callbacks, lo que significa que cuando una tarea se completa, se ejecuta un callback, y esto es lo que hace que node js sea asincrono.
 
+- Como transforma de Sincrono a Asincrono
+
+```javascript
+const fs = require('node:fs');
+
+// Asincrono
+fs.readFile('txt/holamundo.txt', 'utf-8', (err, data) => {
+    console.log(data);
+});
+
+// Sincrono
+const data = fs.readFileSync('txt/holamundo.txt', 'utf-8');
+console.log(data);
+
+
+console.log('Leyendo el archivo');
+```
+
+- Lo que esta pasando es que estoy poniendo arriba de todo un fs.readFile Asicrono en donde es ves de darme la informacion del archivo, me da un callback, y abajo de todo estoy poniendo un fs.readFileSync Sincrono, en donde me da la informacion del archivo.
+
+- Entoces lo que va a pasar es que el primero se va a ejecutar paralelamente, y el segundo se va a ejecutar secuencialmente. Entoces el primer resultado va a ser Sincrono porque esta dentro de hilo principal, y el segundo va a ser Asincrono porque esta en un apartado.
+
+## Callbacks
+
+- Los callbacks son funciones que se pasan como argumentos a otras funciones, y se ejecutan cuando una tarea se completa.
+
+- Los callbacks son la base de la asincronia en NodeJs.
+
+```javascript
+
+const fs = require('node:fs');
+
+fs.readFile('txt/holamundo.txt', 'utf-8', (err, data) => {
+    console.log(data);
+});
+
+console.log('Leyendo el archivo');
+
+```
+
+## Promesas
+
+- Las promesas son un objeto que representa la terminacion o el fracaso de una operacion asincrona.
+
+- Las promesas son una mejora de los callbacks, ya que nos permiten encadenar operaciones asincronas de manera mas legible.
+
+```javascript
+
+const fs = require('node:fs');
+
+const readFile = (file) => {
+    return new Promise((resolve, reject) => {
+        fs.readFile(file, 'utf-8', (err, data) => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    });
+};
+
+readFile('txt/holamundo.txt')
+    .then(data => {
+        console.log(data);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+console.log('Leyendo el archivo');
+
+
+```
+
+## Transformando Callbacks a Promesas
+
+- En este caso vamos a transformar un callback a una promesa con la propiedad promisefy.
+
+```javascript
+
+const fs = require('node:fs');
+
+const { promisify } = require('node:util');
+
+const readFile = promisify(fs.readFile);
+
+readFile('txt/holamundo.txt', 'utf-8')
+    .then(data => {
+        console.log(data);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+console.log('Leyendo el archivo');
+
+```
+
+## Async/Await
+
+- Async/Await es una forma de trabajar con promesas de manera mas legible.
+
+- Async/Await es una mejora de las promesas, ya que nos permite trabajar con promesas de manera mas sincrona.
+
+```javascript
+
+const fs = require('node:fs');
+
+const { promisify } = require('node:util');
+
+const readFile = promisify(fs.readFile);
+
+const read = async () => {
+    try {
+        const data = await readFile('txt/holamundo.txt', 'utf-8');
+        console.log(data);
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+read();
+
+console.log('Leyendo el archivo');
+
+```
+
