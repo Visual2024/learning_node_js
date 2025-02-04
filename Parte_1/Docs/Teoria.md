@@ -1,4 +1,4 @@
-## Console.log en Node js
+## Console.log en Node js  
 
 En Node JS, la función `console.log()` se utiliza para imprimir mensajes en la consola. Por ejemplo, si queremos imprimir un mensaje en la consola, podemos hacerlo de la siguiente manera:
 
@@ -19,7 +19,7 @@ node index.js
 
 ```
 
-## Variables Globales en Node js
+## Variables Globales en Node js / 23:15
 
 - Dentro de Node Js no tenemos window, pero tenemos `global` que es una variable global que se puede acceder desde cualquier parte del código.
 
@@ -137,7 +137,7 @@ module.exports = sum;
 
 ```
 
-### ES Module
+### ES Module : 
 
 - Ahora vamos a crear un archivo que se llama `index.js` y vamos a importar la función `sum` desde el archivo `sum.js`.
 
