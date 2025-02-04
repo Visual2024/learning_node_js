@@ -97,30 +97,24 @@ console.log('Leyendo el archivo');
 
 ```javascript
 
-const fs = require('node:fs');
+const fs = require('node:fs/promises')
 
-const readFile = (file) => {
-    return new Promise((resolve, reject) => {
-        fs.readFile(file, 'utf-8', (err, data) => {
-            if(err) {
-                reject(err);
-            } else {
-                resolve(data);
-            }
-        });
-    });
-};
-
-readFile('txt/holamundo.txt')
-    .then(data => {
-        console.log(data);
+fs.readFile('../txt/holamundo.txt', 'utf-8')
+    .then((data) => {
+        console.log(data)
     })
-    .catch(err => {
-        console.log(err);
-    });
+    .catch((err) => {
+        console.warn("Error")
+    })
 
-console.log('Leyendo el archivo');
 
+fs.readFile("../txt/holamundo2.txt", "utf-8")
+    .then((data) => {
+        console.log(data)
+    })
+    .catch((err) => {
+        console.warn("Error", err)
+    })
 
 ```
 
