@@ -9,3 +9,5 @@ Promise.all([
 });
 
 
+console.log("Leyendo el archivo...")
+
