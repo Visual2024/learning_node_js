@@ -89,3 +89,35 @@ console.log(`Tu nombre es ${firstName} ${lastName}`);
         ```
         - Esto nos ayuda si en una aplicacion necesitamos ejecutar un comando en la terminal y obtener la salida de ese comando en el proceso de Node.js.
     - Crear un proceso de execFile
+
+- Controlar los argumentos de entrada
+    - Para controlar los argumentos de entrada se puede hacer de la siguiente manera
+    ```javascript
+    const args = process.argv.slice(2);
+    console.log(args);
+    ```
+    - Con esto se pueden controlar los argumentos de entrada de la aplicacion.
+
+- Controlar los proceso de salidad, en donde tenemos:
+    1. process.exit(0): Termina el proceso correctamente.
+    2. process.exit(1): Termina el proceso con un error.
+
+- Controlar eventos del proceso
+
+```javascript
+process.on('exit',()=>{
+    console.log('El proceso termino');
+})
+
+
+```
+
+## Current working directory
+    
+- Para obtener el directorio de trabajo actual se puede hacer de la siguiente manera
+
+```javascript
+console.log(process.cwd());
+```
+
+- Con esto se puede obtener el directorio de trabajo actual.

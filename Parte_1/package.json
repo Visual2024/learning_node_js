@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "1. Entrar a la pagina de Node js y descargar la versión LTS.",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
