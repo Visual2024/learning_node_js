@@ -1,0 +1,16 @@
+{
+  "name": "parte_5",
+  "version": "1.0.0",
+  "description": "- NPM es el sistema de gestión de paquetes por defecto para Node.js, un entorno de ejecución para JavaScript.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "picocolors": "^1.1.1"
+  }
+}

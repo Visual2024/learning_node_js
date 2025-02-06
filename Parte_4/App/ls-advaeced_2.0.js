@@ -14,11 +14,13 @@ async function ls(directory) {
 
     const filePromises = files.map(async (file) => {
         const filePath = path.join(folder, file);
-        const stats = await fs.stat(filePath);
+         const stats = await fs.stat(filePath);
+        const readFile = await fs.readFile(filePath, 'utf-8');
         console.log(`File: ${file}`);
         console.log(`Size: ${stats.size} bytes`);
         console.log(`Is Directory: ${stats.isDirectory()}`);
         console.log(`Last Modified: ${stats.mtime}`);
+        console.log(readFile);
         console.log('----------------------');
     });
 
